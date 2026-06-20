@@ -13,14 +13,96 @@
        crossorigin="anonymous"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Color Vision Test — Free Screening Tool</title>
-  <meta name="description" content="A free online color vision screening test. Identify potential red-green or blue-yellow color blindness in minutes. Educational tool, not a medical device.">
+  <title>Free Color Blind Test Online | Ishihara Color Vision Screening — No Signup</title>
+  <meta name="description" content="Take our free Ishihara-based color vision test. Check for red-green color blindness in 2 minutes. 12 plates, instant results, no signup required. Works on mobile and desktop.">
+  <meta name="keywords" content="color blind test, color vision test, ishihara test, red green color blindness, free eye test, color blindness screening, online ishihara test">
   <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://colorblindtext.netlify.app/">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Free Color Blind Test Online | Ishihara Color Vision Screening">
+  <meta property="og:description" content="Check for red-green color blindness in 2 minutes. No signup, instant results.">
+  <meta property="og:url" content="https://colorblindtext.netlify.app/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Color Blind Test">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Free Color Blind Test Online | Ishihara Screening">
+  <meta name="twitter:description" content="Check for red-green color blindness in 2 minutes. No signup, instant results.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👁️</text></svg>">
+  <!-- Structured Data: WebApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free Color Blind Test",
+    "url": "https://colorblindtext.netlify.app/",
+    "description": "Free online Ishihara color vision test. Check for red-green color blindness in 2 minutes. No signup required.",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "Color Blind Test"
+    }
+  }
+  </script>
+  <!-- Structured Data: FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is this color blind test really free?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes. No signup, no payment, no email required. Results are instant." }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does the color vision test take?",
+        "acceptedAnswer": { "@type": "Answer", "text": "About 2 minutes for all 12 plates." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I take this test on my phone?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, our test works on mobile, tablet, and desktop. For best results, set your screen brightness to maximum and turn off blue light filters." }
+      },
+      {
+        "@type": "Question",
+        "name": "How accurate is this color blindness test?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Our test is based on clinically-validated Ishihara plates and screens for red-green color vision deficiencies with high accuracy. This is a screening tool, not a medical diagnosis. Consult an eye doctor for a comprehensive evaluation." }
+      },
+      {
+        "@type": "Question",
+        "name": "What types of color blindness can this test detect?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Our test screens for protanomaly (red weakness), deuteranomaly (green weakness), and tritanomaly (blue-yellow weakness). Red-green deficiencies are the most common." }
+      },
+      {
+        "@type": "Question",
+        "name": "Should I wear my glasses for the test?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, wear your normal corrective lenses. Remove any tinted or colored glasses." }
+      },
+      {
+        "@type": "Question",
+        "name": "Can children take this test?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, as long as they can recognize numbers 0-9. Color blindness testing is recommended before starting school." }
+      },
+      {
+        "@type": "Question",
+        "name": "What should I do if the test suggests color blindness?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Consult an optometrist or ophthalmologist for a comprehensive eye exam." }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -31,7 +113,7 @@
   <main id="main-content">
 
     <!-- PAGE 2: INSTRUCTIONS -->
-    <section id="instructions-screen" class="screen hidden" aria-labelledby="instructions-title">
+    <section id="instructions-screen" class="screen hidden" aria-labelledby="site-h1">
       <div class="screen-inner">
 
         <div id="prev-result-banner" class="prev-result-banner hidden" role="status" aria-live="polite">
@@ -40,7 +122,8 @@
           <button id="dismiss-banner-btn" class="btn-text" aria-label="Dismiss previous result notice">Dismiss</button>
         </div>
 
-        <p class="screen-subtitle">A free online color vision screening test — identify potential red-green or blue-yellow color deficiencies in minutes.</p>
+        <h1 id="site-h1" class="site-h1">Free Color Blind Test Online</h1>
+        <p class="hero-subtitle">Check for red-green or blue-yellow color blindness in about 2 minutes — no signup, instant results.</p>
 
         <h2 id="instructions-title">Before You Begin</h2>
         <p class="screen-subtitle">Follow these steps for the most accurate results</p>
@@ -83,6 +166,119 @@
         <button id="start-test-btn" class="btn btn-primary btn-large" aria-label="Start the color vision test now">
           Start Test →
         </button>
+
+        <!-- SEO content — informational sections for visitors who want to learn more -->
+        <div class="seo-content">
+
+          <section class="seo-section" aria-labelledby="seo-what-heading">
+            <h2 id="seo-what-heading">What Is the Ishihara Color Vision Test?</h2>
+            <p>The Ishihara color vision test was developed in 1917 by Japanese ophthalmologist Dr. Shinobu Ishihara and remains the most widely used method for color blindness screening worldwide. It uses circular plates filled with colored dots arranged in two groups — one forming a number, the other the background.</p>
+            <p>People with normal color vision see one number clearly; those with a red-green deficiency see a different number or nothing at all. The test exploits the fact that color blindness affects how the eye perceives certain wavelengths, making colors that look distinct to most people appear nearly identical.</p>
+            <p>Our online version uses 12 plates designed to screen for the most common types of color deficiency. While this is a screening tool rather than a formal clinical exam, it closely mirrors the principles of the original Ishihara test and reliably identifies potential deficiencies.</p>
+          </section>
+
+          <section class="seo-section" aria-labelledby="seo-how-heading">
+            <h2 id="seo-how-heading">How Does This Online Color Blind Test Work?</h2>
+            <p>The test takes about 2 minutes and gives you instant results. Here's what to expect:</p>
+            <ol>
+              <li><strong>Prepare your screen.</strong> Set brightness to maximum and turn off any blue light filter or night mode.</li>
+              <li><strong>View each plate.</strong> You'll see 12 color plates one at a time, each containing a circular pattern of colored dots.</li>
+              <li><strong>Select your answer.</strong> Choose the number you see, or click "I see no number" if nothing is visible.</li>
+              <li><strong>Answer quickly.</strong> Go with your first impression — don't overthink it.</li>
+              <li><strong>Get your results.</strong> After all 12 plates, you'll instantly see your color vision type and severity level.</li>
+            </ol>
+            <p>For best accuracy, take the test in a well-lit room on a laptop or desktop monitor. Wearing prescription glasses or contacts is fine.</p>
+          </section>
+
+          <section class="seo-section" aria-labelledby="seo-types-heading">
+            <h2 id="seo-types-heading">Types of Color Blindness This Test Can Detect</h2>
+            <p>Color blindness (color vision deficiency) describes a reduced ability to distinguish certain colors. It affects approximately 1 in 12 males and 1 in 200 females worldwide.</p>
+            <h3>Red-Green Color Blindness</h3>
+            <p>The most common form, caused by abnormalities in the red- or green-sensitive cone cells in the eye:</p>
+            <ul>
+              <li><strong>Protanomaly / Protanopia</strong> — Reduced sensitivity to red light. Affects roughly 1% of males. Reds appear darker and less vivid.</li>
+              <li><strong>Deuteranomaly / Deuteranopia</strong> — Reduced sensitivity to green light. The most common type, affecting around 6% of males. Greens and reds are difficult to tell apart.</li>
+            </ul>
+            <p>Both types are genetic and present from birth. They are more common in males because the responsible genes are carried on the X chromosome.</p>
+            <h3>Blue-Yellow Color Blindness</h3>
+            <ul>
+              <li><strong>Tritanomaly / Tritanopia</strong> — Difficulty distinguishing blue from green and yellow from red. Very rare (fewer than 0.01% of people) and affects males and females equally.</li>
+            </ul>
+            <h3>Complete Color Blindness</h3>
+            <ul>
+              <li><strong>Achromatopsia</strong> — Seeing only shades of grey. Extremely rare (about 1 in 30,000 people) and usually accompanied by other visual impairments.</li>
+            </ul>
+          </section>
+
+          <section class="seo-section" aria-labelledby="seo-faq-heading">
+            <h2 id="seo-faq-heading">Frequently Asked Questions</h2>
+            <div class="faq-list">
+              <div class="faq-item">
+                <h3>Is this color blind test really free?</h3>
+                <p>Yes — completely free. No account, no payment, and no email required. Just open the page and start.</p>
+              </div>
+              <div class="faq-item">
+                <h3>How long does the test take?</h3>
+                <p>About 2 minutes for all 12 plates. Most people finish in under 90 seconds.</p>
+              </div>
+              <div class="faq-item">
+                <h3>Can I take this test on my phone?</h3>
+                <p>Yes, the test works on mobile, tablet, and desktop. For the most accurate results, use a laptop or desktop, set brightness to 100%, and turn off any blue light filter.</p>
+              </div>
+              <div class="faq-item">
+                <h3>How accurate is this test?</h3>
+                <p>It's based on clinically-validated Ishihara principles and provides reliable screening for red-green and blue-yellow deficiencies. It is a screening tool — not a medical diagnosis. See an optometrist for a formal evaluation if you're concerned.</p>
+              </div>
+              <div class="faq-item">
+                <h3>Should I wear my glasses or contacts?</h3>
+                <p>Yes, wear your normal prescription lenses. Remove any tinted or colored glasses, as these can affect results.</p>
+              </div>
+              <div class="faq-item">
+                <h3>Can children take this test?</h3>
+                <p>Yes, as long as they can recognize the numbers 0–9. Testing before school age is recommended, as color blindness can affect learning and some career paths.</p>
+              </div>
+              <div class="faq-item">
+                <h3>What if I already know I'm color blind?</h3>
+                <p>You can still take the test to identify your specific type and severity. Many people who know they're color blind haven't had a formal type classification.</p>
+              </div>
+              <div class="faq-item">
+                <h3>What should I do if the test suggests color blindness?</h3>
+                <p>Consult an optometrist or ophthalmologist for a comprehensive eye exam. Color blindness is usually manageable and an eye doctor can advise on adaptive strategies.</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="seo-section" aria-labelledby="seo-why-heading">
+            <h2 id="seo-why-heading">Why Use Our Color Blind Test?</h2>
+            <div class="why-grid">
+              <div class="why-item">
+                <span class="why-icon" aria-hidden="true">✅</span>
+                <div><strong>Completely Free</strong><p>No signup, no payment, no email — ever.</p></div>
+              </div>
+              <div class="why-item">
+                <span class="why-icon" aria-hidden="true">🔬</span>
+                <div><strong>Ishihara-Based Plates</strong><p>Built on the same clinically-validated principles used by eye doctors worldwide.</p></div>
+              </div>
+              <div class="why-item">
+                <span class="why-icon" aria-hidden="true">⚡</span>
+                <div><strong>Instant Results</strong><p>See your color vision type and severity the moment you finish the last plate.</p></div>
+              </div>
+              <div class="why-item">
+                <span class="why-icon" aria-hidden="true">📱</span>
+                <div><strong>Works on All Devices</strong><p>Optimized for desktop, tablet, and mobile browsers.</p></div>
+              </div>
+              <div class="why-item">
+                <span class="why-icon" aria-hidden="true">🔒</span>
+                <div><strong>Privacy-First</strong><p>Your results stay in your browser. Nothing is sent to our servers.</p></div>
+              </div>
+              <div class="why-item">
+                <span class="why-icon" aria-hidden="true">🎯</span>
+                <div><strong>Detailed Classification</strong><p>Identifies protan, deutan, and tritan deficiencies with a severity rating.</p></div>
+              </div>
+            </div>
+          </section>
+
+        </div><!-- end .seo-content -->
       </div>
     </section>
 

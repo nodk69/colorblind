@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://colorblindtext.netlify.app/sitemap.xml

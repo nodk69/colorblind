@@ -212,6 +212,135 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
 }
 
 /* ─────────────────────────────────────────
+   LANDING H1 + HERO
+───────────────────────────────────────── */
+.site-h1 {
+  font-size: clamp(2rem, 6vw, 3rem);
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.03em;
+}
+
+.hero-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
+
+/* ─────────────────────────────────────────
+   SEO CONTENT SECTIONS
+───────────────────────────────────────── */
+.seo-content {
+  margin-top: 4rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--border);
+}
+
+.seo-section {
+  margin-bottom: 3rem;
+}
+
+.seo-section h2 {
+  font-size: clamp(1.3rem, 3vw, 1.75rem);
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.seo-section h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 1.5rem 0 0.5rem;
+}
+
+.seo-section p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 0.75rem;
+}
+
+.seo-section ol,
+.seo-section ul {
+  padding-left: 1.5rem;
+  margin: 0.75rem 0 1rem;
+}
+
+.seo-section li {
+  font-size: 0.93rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin-bottom: 0.5rem;
+}
+
+/* FAQ */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.faq-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.1rem 1.25rem;
+}
+
+.faq-item h3 {
+  font-size: 0.93rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 0.35rem;
+}
+
+.faq-item p {
+  font-size: 0.88rem;
+  margin: 0;
+  line-height: 1.7;
+}
+
+/* Why grid */
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.why-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.why-icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+  line-height: 1;
+}
+
+.why-item strong {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  margin-bottom: 0.2rem;
+}
+
+.why-item p {
+  font-size: 0.83rem;
+  margin: 0;
+  line-height: 1.55;
+}
+
+/* ─────────────────────────────────────────
    PAGE 2: INSTRUCTIONS
 ───────────────────────────────────────── */
 #instructions-screen {
@@ -934,7 +1063,8 @@ a:hover { color: var(--accent-hover); text-decoration: underline; }
 @media (max-width: 767px) {
   :root { --plate-size: 260px; }
 
-  .instruction-cards {
+  .instruction-cards,
+  .why-grid {
     grid-template-columns: 1fr;
   }
 
