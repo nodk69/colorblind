@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Vision Test — Free Screening Tool</title>
+  <meta name="description" content="A free online color vision screening test. Identify potential red-green or blue-yellow color blindness in minutes. Educational tool, not a medical device.">
+  <meta name="robots" content="index, follow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👁️</text></svg>">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ═══════════════════════════════════════ -->
+  <!-- MAIN CONTENT                           -->
+  <!-- ═══════════════════════════════════════ -->
+  <main id="main-content">
+
+    <!-- PAGE 2: INSTRUCTIONS -->
+    <section id="instructions-screen" class="screen hidden" aria-labelledby="instructions-title">
+      <div class="screen-inner">
+
+        <div id="prev-result-banner" class="prev-result-banner hidden" role="status" aria-live="polite">
+          <span class="banner-icon" aria-hidden="true">📋</span>
+          <span id="prev-result-text"></span>
+          <button id="dismiss-banner-btn" class="btn-text" aria-label="Dismiss previous result notice">Dismiss</button>
+        </div>
+
+        <h2 id="instructions-title">Before You Begin</h2>
+        <p class="screen-subtitle">Follow these steps for the most accurate results</p>
+
+        <div class="instruction-cards" role="list">
+          <div class="instruction-card" role="listitem">
+            <span class="card-icon" aria-hidden="true">💻</span>
+            <div>
+              <strong>Use a laptop or desktop</strong>
+              <p>Mobile screens vary in color accuracy and size, which may affect your results.</p>
+            </div>
+          </div>
+          <div class="instruction-card" role="listitem">
+            <span class="card-icon" aria-hidden="true">☀️</span>
+            <div>
+              <strong>Maximum screen brightness</strong>
+              <p>Set your display brightness to 100% and reduce any ambient glare on the screen.</p>
+            </div>
+          </div>
+          <div class="instruction-card" role="listitem">
+            <span class="card-icon" aria-hidden="true">👁️</span>
+            <div>
+              <strong>Test one eye at a time</strong>
+              <p>Cover the other eye with your hand. Wearing glasses or contacts is fine.</p>
+            </div>
+          </div>
+          <div class="instruction-card" role="listitem">
+            <span class="card-icon" aria-hidden="true">📏</span>
+            <div>
+              <strong>Correct viewing distance</strong>
+              <p>Sit approximately 50–70 cm (20–28 inches) from your screen.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="test-info-box">
+          <p>The test has <strong>12 plates</strong>. Each plate shows a circle filled with colored dots. Tell us what number you see, or select <em>"I see no number"</em> if nothing is visible. Answer as quickly and naturally as you can — don't overthink it.</p>
+        </div>
+
+        <button id="start-test-btn" class="btn btn-primary btn-large" aria-label="Start the color vision test now">
+          Start Test →
+        </button>
+      </div>
+    </section>
+
+    <!-- PAGE 3: THE TEST -->
+    <section id="test-screen" class="screen hidden" aria-label="Color vision test">
+      <div class="test-layout">
+
+        <div class="test-progress-area">
+          <div class="progress-info">
+            <span id="progress-text" aria-live="polite" aria-atomic="true">Plate 1 of 12</span>
+          </div>
+          <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="12" aria-valuenow="1" aria-label="Test progress">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+        </div>
+
+        <div class="plate-area" id="plate-area">
+          <div id="plate-container" class="plate-container">
+            <canvas
+              id="plate-canvas"
+              width="400"
+              height="400"
+              role="img"
+              aria-label="Ishihara-style color vision test plate — look for a number formed by dots"
+            ></canvas>
+          </div>
+        </div>
+
+        <div class="answer-area">
+          <p class="answer-prompt" id="answer-prompt">What number do you see in the plate?</p>
+          <div id="answer-buttons" class="answer-buttons" role="group" aria-labelledby="answer-prompt"></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PAGE 4: RESULTS -->
+    <section id="results-screen" class="screen hidden" aria-labelledby="results-title">
+      <div class="results-layout">
+
+        <!-- Result Header -->
+        <div class="results-header">
+          <div id="results-badge" class="results-badge" aria-hidden="true"></div>
+          <h2 id="results-title" class="results-title">Your Results</h2>
+          <p id="results-subtitle" class="results-subtitle"></p>
+        </div>
+
+        <!-- Severity Bar -->
+        <div class="severity-section" aria-label="Color vision severity indicator">
+          <h3 class="section-heading">Severity Spectrum</h3>
+          <div class="severity-bar-outer">
+            <div class="severity-bar-labels" aria-hidden="true">
+              <span>Normal</span>
+              <span>Mild</span>
+              <span>Moderate</span>
+              <span>Strong</span>
+            </div>
+            <div class="severity-track" role="img" id="severity-track" aria-label="Severity position indicator">
+              <div class="severity-gradient"></div>
+              <div id="severity-marker" class="severity-marker">
+                <div class="marker-pin"></div>
+                <div class="marker-label" id="marker-label"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Results Grid: Type Info + Summary -->
+        <div class="results-grid">
+
+          <!-- Type Detail Card -->
+          <div id="type-detail" class="type-detail-card hidden">
+            <h3 class="section-heading">Deficiency Type</h3>
+            <div id="type-content"></div>
+          </div>
+
+          <!-- Normal Card -->
+          <div id="normal-detail" class="normal-detail-card hidden">
+            <div class="check-circle" aria-hidden="true">✓</div>
+            <h3>Normal Color Vision</h3>
+            <p id="normal-detail-text"></p>
+          </div>
+
+          <!-- Score Breakdown -->
+          <div class="breakdown-card">
+            <h3 class="section-heading">Response Breakdown</h3>
+            <div id="breakdown-content" class="breakdown-content"></div>
+          </div>
+
+        </div>
+
+        <!-- Products (shown if deficiency) -->
+        <div id="products-section" class="products-section hidden">
+          <div class="products-header">
+            <h3 class="section-heading">Products That May Help</h3>
+            <span class="ad-badge">Affiliate / Ad</span>
+          </div>
+          <div class="products-grid">
+            <div class="product-card">
+              <div class="product-icon" aria-hidden="true">🕶️</div>
+              <div>
+                <h4>EnChroma Glasses</h4>
+                <p>Lens technology designed to enhance color perception for people with red-green color deficiency.</p>
+                <a href="https://enchroma.com" target="_blank" rel="noopener noreferrer nofollow" class="btn btn-outline btn-sm" aria-label="Visit EnChroma website (opens in new tab)">Learn More ↗</a>
+              </div>
+            </div>
+            <div class="product-card">
+              <div class="product-icon" aria-hidden="true">👓</div>
+              <div>
+                <h4>Pilestone Glasses</h4>
+                <p>Affordable color-correcting lenses available for multiple types of color vision deficiency.</p>
+                <a href="https://pilestone.com" target="_blank" rel="noopener noreferrer nofollow" class="btn btn-outline btn-sm" aria-label="Visit Pilestone website (opens in new tab)">Learn More ↗</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Email Capture -->
+        <div class="email-section">
+          <h3>Get a Detailed Report</h3>
+          <p>Receive your full results and eye health tips by email. Unsubscribe anytime.</p>
+          <form id="email-form" class="email-form" novalidate>
+            <div class="email-row">
+              <label for="email-input" class="visually-hidden">Your email address</label>
+              <input
+                type="email"
+                id="email-input"
+                name="email"
+                placeholder="your@email.com"
+                autocomplete="email"
+                aria-label="Enter your email address to receive your results"
+              >
+              <button type="submit" class="btn btn-secondary" id="email-submit-btn">Send Report</button>
+            </div>
+            <p id="email-form-msg" class="email-msg" role="status" aria-live="polite"></p>
+            <p class="email-fine-print">Sent via Formspree. No spam, unsubscribe anytime. <a href="privacy.html">Privacy Policy</a></p>
+          </form>
+        </div>
+
+        <!-- Share -->
+        <div class="share-section">
+          <h3 class="section-heading">Share This Test</h3>
+          <div class="share-buttons" role="group" aria-label="Share options">
+            <button id="copy-link-btn" class="btn btn-outline" aria-label="Copy link to clipboard">
+              📋 Copy Link
+            </button>
+            <a id="twitter-share-btn" href="#" class="btn btn-outline" target="_blank" rel="noopener noreferrer" aria-label="Share on Twitter (opens in new tab)">
+              𝕏 Twitter
+            </a>
+            <a id="facebook-share-btn" href="#" class="btn btn-outline" target="_blank" rel="noopener noreferrer" aria-label="Share on Facebook (opens in new tab)">
+              Facebook
+            </a>
+            <a id="whatsapp-share-btn" href="#" class="btn btn-outline whatsapp-only" target="_blank" rel="noopener noreferrer" aria-label="Share on WhatsApp (opens in new tab)">
+              WhatsApp
+            </a>
+          </div>
+          <span id="copy-confirm" class="copy-confirm" role="status" aria-live="polite"></span>
+        </div>
+
+        <!-- Actions -->
+        <div class="action-buttons">
+          <button id="retake-btn" class="btn btn-primary" aria-label="Retake the color vision test from the beginning">
+            Take Test Again
+          </button>
+          <a
+            href="https://www.google.com/maps/search/optometrist+near+me"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-secondary"
+            aria-label="Find an optometrist near you on Google Maps (opens in new tab)"
+          >
+            Find an Eye Doctor
+          </a>
+          <a
+            href="https://en.wikipedia.org/wiki/Color_blindness"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-outline"
+            aria-label="Learn more about color blindness on Wikipedia (opens in new tab)"
+          >
+            Learn More
+          </a>
+        </div>
+
+        <!-- Medical disclaimer on results -->
+        <div class="result-disclaimer" role="note">
+          <span class="disclaimer-icon" aria-hidden="true">⚠️</span>
+          <p>This is a screening tool, not a medical diagnosis. Please consult a qualified eye care professional for a comprehensive examination of your color vision.</p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER (hidden during test) -->
+  <footer id="site-footer" class="site-footer hidden">
+    <div class="footer-inner">
+      <p>© 2024 Color Vision Test. All rights reserved. <span class="footer-note">Educational tool — not a medical device.</span></p>
+      <nav aria-label="Footer links">
+        <a href="privacy.html">Privacy Policy</a>
+        <span aria-hidden="true">·</span>
+        <a href="terms.html">Terms of Use</a>
+        <span aria-hidden="true">·</span>
+        <a href="mailto:contact@colorvisiontest.example.com">Contact</a>
+        <span aria-hidden="true">·</span>
+        <button id="clear-data-btn" class="btn-text" aria-label="Clear all test data stored in your browser">Clear My Data</button>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
